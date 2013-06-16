@@ -1,5 +1,5 @@
 module.exports = {
-  cookieSecret: 'microblogbyvoid',
-  db: 'microblog',
+  cookieSecret: 'OrzSevenkplus',
+  db: 'mrspaint-web',
   host: 'localhost',
 };

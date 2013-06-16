@@ -15,55 +15,55 @@ var app = module.exports = express.createServer();
 
 // Configuration
 
-
 var drawings = [];
+var onlineUserNumber = 0;
 
-function clear()
-{
+function clear(){
     drawings = [];
 }
 
-function push(x, y, tool, color, size, drag)
-{
+function push(x, y, drag, tool, color, size, alpha){    
     drawings.push({
-
         x:     x,
         y:     x,
+        drag:  drag,        
         tool:  tool,
         color: color,
         size:  size,
-        drag:  drag
-
+        alpha: alpha
     });
 }
 
+function changeOnlineUserNumber(delta){
+  onlineUserNumber += delta;
+}
 
-function start()
-{
+
+function start(){
 
     app.use(express.static(RootDir + 'public'));
     
     var server = app;
     io = io.listen(server);
     
-    app.get('/getdrawings', function(req, res)
-    {
+    app.get('/getdrawings', function(req, res){
         res.send(JSON.stringify(drawings));
     });
 
 
-    io.sockets.on('connection', function(socket)
-    {
-        socket.on('push', function(d)
-        {
+    io.sockets.on('connection', function(socket){
+        socket.on('push', function(d){
             drawings.push(d);
             socket.broadcast.emit('push', d);
         });
 
-        socket.on('clear', function(d)
-        {
+        socket.on('clear', function(d){
             clear();
             socket.broadcast.emit('clear');
+        });
+        socket.on('changeOnlineUserNumber', function(d){
+            changeOnlineUserNumber(d);
+            socket.broadcast.emit('changeOnlineUserNumber', d);
         });
     });
 }
@@ -115,5 +115,5 @@ app.dynamicHelpers({
   },
 });
 
-app.listen(3000);
+app.listen(2333);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);

@@ -2,16 +2,24 @@ var crypto = require('crypto');
 var User = require('../models/user.js');
 var Post = require('../models/post.js');
 
+
+
 module.exports = function(app) {
-  app.get('/', function(req, res) {
+
+
+
+  app.get('/', function(req, res) {    
+
+
     Post.get(null, function(err, posts) {
       if (err) {
         posts = [];
       }
       res.render('index', {
         title: '首頁',
-        posts: posts,
+        posts: posts
       });
+
     });
   });
   
@@ -124,7 +132,7 @@ module.exports = function(app) {
         return res.redirect('/');
       }
       req.flash('success', '發表成功');
-      res.redirect('/user/' + currentUser.name);
+      res.redirect('/u/' + currentUser.name);
     });
   });
 };

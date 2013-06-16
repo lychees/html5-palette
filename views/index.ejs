@@ -1,58 +1,25 @@
 <% if (!user) { %>
   <div class="hero-unit">
-    <h1>歡迎來到 茶繪君 (Demo)</h1>
-    <p>茶繪君是一個繪畫分享社區。</p>
+    <h1>歡迎來到 茶繪君 (Demo)  <i class="icon-pencil"></i></h1> 
+    <p>茶繪君是一個繪畫分享社區。</p>    
     <p>
       <a class="btn btn-primary btn-large" href="/login">登錄</a>
       <a class="btn btn-large" href="/reg">立即註冊</a>
     </p>
+
+    <div font-size = "5px;">      
+      <a href="http://blog.renren.com/blog/bp/Q7OUDPg0kY">最近更新 Jun 16th...</a><br>
+
+      幷發部份的實現有 <code>bug </code>。。請不要在別人畫畫的時候同時操作。<br>
+      按住 <code>Shift</code> 鍵可繪製直線。<br>
+      按住 <code>Ctrl + Z</code> 可撤销上次操作。（似乎也可以撤銷別人的操作。。。<br>
+    </div>    
   </div>
 <% } else { %>
   <%- partial('say') %> 
 <% } %>
 
-      <div>  
-        <canvas id="Canvas" width="1168" height="600" style="border:1px solid #000;">
-          Your browser does not support HTML5 Canvas.
-        </canvas> 
-        
-        <br>
-        <br>
-        <p onclick="clearCanvas()" class="btn btn-primary btn-small">Clear</p>
-        <p onclick="save()" class="btn btn-primary btn-small">Save</p>
-        <p onclick="load()" class="btn btn-inverse btn-small">Load</p>
-        <br>
-        <br>
-        <p onclick="setTool('pencil');" class="btn btn-primary btn-small">Pencil</p>
-        <p onclick="setTool('crayon');" class="btn btn-inverse btn-small">Crayon</p>
-        <p onclick="setTool('eraser');" class="btn btn-primary btn-small">Eraser</p>      
-        <br>
-
-        <br><br>
-        <div>
-          <label for="brushSize">筆刷大小:
-            <input type="text" id="brushSize" style="border: 0; color: #f6931f; font-weight: bold;" disabled/>
-          </label>
-          <div id="brushSizeSlider"></div>
-        </div>
-
-        <br><br>
-
-        <div>
-          <label for="brushAlpha">筆刷濃度:
-            <input type="text" id="brushAlpha" style="border: 0; color: #f6931f; font-weight: bold;" disabled/>
-          </label>
-          <div id="brushAlphaSlider"></div>
-        </div>        
-
-        <br><br>
-
-        <div id="colorSelector" class="colorSelector"><div style="background-color: #0000ff"></div></div>  
-        <div id="colorSelector2" class="colorSelector"><div style="background-color: #00ff00"></div></div>        
-
-        <label for="onlineUserNumber">在線人數:
-          <input type="text" id="onlineUserNumber" style="border: 0; color: #f6931f; font-weight: bold;" disabled/>
-        </label>
+<%- partial('paint') %>
 
 
 <%- partial('posts') %> 
