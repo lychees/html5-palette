@@ -23,6 +23,8 @@ a simple online palette by nodejs &amp; HTML5
 # 參考資料 Referrence
 
 [Create a Drawing App with HTML5 Canvas and JavaScript, William Malone, ](http://www.williammalone.com/articles/create-html5-canvas-javascript-drawing-app/)
+
 [Spirograph, Benjoffe](http://www.benjoffe.com/code/toys/spirograph)
+
 [Wacom Web API](http://www.wacomeng.com/web/)
 
