@@ -1,7 +1,3 @@
-html5-palette
-=============
-
-
 # 概覽 Overview
 
 a simple online palette by nodejs &amp; HTML5
