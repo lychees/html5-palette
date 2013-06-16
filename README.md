@@ -1,9 +1,14 @@
 html5-palette
 =============
 
+
+# 概覽 Overview
+
 a simple online palette by nodejs &amp; HTML5
 
 一个简单的 HTML5 绘图程序。
+
+# 数据结构
 
 路径格式{
     x, y, // 坐标
