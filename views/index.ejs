@@ -1,0 +1,59 @@
+<% if (!user) { %>
+  <div class="hero-unit">
+    <h1>歡迎來到 茶繪君 (Demo)</h1>
+    <p>茶繪君是一個繪畫分享社區。</p>
+    <p>
+      <a class="btn btn-primary btn-large" href="/login">登錄</a>
+      <a class="btn btn-large" href="/reg">立即註冊</a>
+    </p>
+  </div>
+<% } else { %>
+  <%- partial('say') %> 
+<% } %>
+
+      <div>  
+        <canvas id="Canvas" width="1168" height="600" style="border:1px solid #000;">
+          Your browser does not support HTML5 Canvas.
+        </canvas> 
+        
+        <br>
+        <br>
+        <p onclick="clearCanvas()" class="btn btn-primary btn-small">Clear</p>
+        <p onclick="save()" class="btn btn-primary btn-small">Save</p>
+        <p onclick="load()" class="btn btn-inverse btn-small">Load</p>
+        <br>
+        <br>
+        <p onclick="setTool('pencil');" class="btn btn-primary btn-small">Pencil</p>
+        <p onclick="setTool('crayon');" class="btn btn-inverse btn-small">Crayon</p>
+        <p onclick="setTool('eraser');" class="btn btn-primary btn-small">Eraser</p>      
+        <br>
+
+        <br><br>
+        <div>
+          <label for="brushSize">筆刷大小:
+            <input type="text" id="brushSize" style="border: 0; color: #f6931f; font-weight: bold;" disabled/>
+          </label>
+          <div id="brushSizeSlider"></div>
+        </div>
+
+        <br><br>
+
+        <div>
+          <label for="brushAlpha">筆刷濃度:
+            <input type="text" id="brushAlpha" style="border: 0; color: #f6931f; font-weight: bold;" disabled/>
+          </label>
+          <div id="brushAlphaSlider"></div>
+        </div>        
+
+        <br><br>
+
+        <div id="colorSelector" class="colorSelector"><div style="background-color: #0000ff"></div></div>  
+        <div id="colorSelector2" class="colorSelector"><div style="background-color: #00ff00"></div></div>        
+
+        <label for="onlineUserNumber">在線人數:
+          <input type="text" id="onlineUserNumber" style="border: 0; color: #f6931f; font-weight: bold;" disabled/>
+        </label>
+
+
+<%- partial('posts') %> 
+

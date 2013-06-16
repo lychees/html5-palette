@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title><%= title %> - 茶繪君</title>
+    
+
+<!-- bootstrap -->
+    <link rel="stylesheet" href="/stylesheets/bootstrap-responsive.css" />
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css" />
+
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+
+<!-- colorpicker -->
+    <link rel="stylesheet" href="stylesheets/colorpicker.css" />
+    <link rel="stylesheet" href="stylesheets/layout.css" />
+
+<!-- slides -->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="/">茶繪君</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="/">首頁</a></li>
+              <% if (!user) { %>
+                <li><a href="/login">登入</a></li>
+                <li><a href="/reg">註冊</a></li>
+              <% } else { %>
+                <li><a href="/logout">登出</a></li>
+              <% } %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="container" class="container">
+
+      <%- body %>
+
+      <% if (success) { %>
+        <div class="alert alert-success">
+          <%= success %>
+        </div>
+      <% } %>
+      <% if (error) { %>
+        <div class="alert alert-error">
+          <%= error %>
+        </div>
+      <% } %>
+      <hr />
+      <footer>
+        <p><a href="..." target="_blank">Copyright © liuyanghejerry</p>
+      </footer>
+    </div>
+
+  </body>
+
+    <script src="/socket.io/socket.io.js"></script>        
+    <script src="http://code.jquery.com/jquery.js"></script>        
+    <script src="http://code.jquery.com/jQuery.colorpicker.js"></script>
+    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-transition.js"></script>
+    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-alert.js"></script>
+    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-modal.js"></script>
+    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-dropdown.js"></script>
+    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-tab.js"></script>
+    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-tooltip.js"></script>
+    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-popover.js"></script>
+    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-button.js"></script>
+    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-collapse.js"></script>
+    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-carousel.js"></script>
+    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-typeahead.js"></script>  
+  
+    <script src="/javascripts/jquery.js"></script>
+    <script src="/javascripts/bootstrap.js"></script>
+    <script src="/javascripts/painter.js"></script>
+    <script src="/javascripts/utils.js"></script>
+    <script src="/javascripts/layout.js"></script>
+    <script src="/javascripts/eye.js"></script>
+    <script src="/javascripts/colorpicker.js"></script>
+    <script src="/javascripts/layout.js?ver=1.0.2"></script>          
+
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>      
+
+    <script type="text/javascript">     
+      $(document).ready(function(){
+        init();
+        prepareCanvas();
+      });
+    </script>
+
+    <script>
+  
+    </script>
+    
+</html>

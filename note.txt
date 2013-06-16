@@ -1,0 +1,4 @@
+Please ensure that you set the default write concern
+var Store = connect.session.Store
+
+mongod -dbpath "..."
